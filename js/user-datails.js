@@ -1,5 +1,5 @@
-let params = new URLSearchParams(window.location.search);
-let id = params.get('id');
+const params = new URLSearchParams(window.location.search);
+const id = params.get('id');
 const userInfo = document.getElementById('all-user-info-div');
 const getAndShowUserInfo = async (id) => {
     const user = await fetch('https://jsonplaceholder.typicode.com/users/'+ id).then(res => res.json());
@@ -21,7 +21,7 @@ const showInfo = (user) => {
         if (  typeof user[userKey] ==='object') {
             console.log(userKey);
 const ul = document.createElement("ul");
-let insideInfo = user[userKey];
+const insideInfo = user[userKey];
 for (const key in insideInfo ) {
     const li = document.createElement("li");
 if ( typeof insideInfo[key]==='object') {
@@ -64,23 +64,30 @@ const addPostsBtn = (user) => {
 
 
 const showPosts = async (user) => {
-let posts = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${user.id}`).then(res => res.json()).then(res=>res.map(
-    (res)=>     res.title
-));
+const posts = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${user.id}`).then(res => res.json());
 
-
-let modalDiv = document.createElement("div");
+ const modalDiv = document.createElement("div");
 modalDiv.className = "modal";
 
-let modalContent = document.createElement("div");
+const modalContent = document.createElement("div");
 modalContent.className = "modal-content";
-let ul = document.createElement("ul");
+const ul = document.createElement("ul");
 
 modalContent.appendChild(ul);
- for (let post of posts)
+ for (const post of posts)
  {
-     let li = document.createElement("li");
-     li.innerText = post;
+     const div = document.createElement("div");
+     const li = document.createElement("li");
+     const p = document.createElement("p");
+     p.innerText = post.title;
+     li.appendChild(p);
+     // li.innerText = post;
+     const button = document.createElement("a");
+     button.innerText = "details";
+     button.className = "details-btn";
+    button.href = `post-details.html?postId=${post.id}`;
+     li.appendChild(button);
+     li.className= 'post-title-and-btn';
      ul.appendChild(li);
  }
 

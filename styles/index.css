@@ -47,7 +47,7 @@ h1{
     font-size: 36px;
 }
 
-a{
+a, .details-btn {
     all: unset;
     background: #9bdc9b;
     display: flex;
@@ -97,10 +97,13 @@ a{
     background: #fff;
     padding: 20px;
     width: 85%;
+
+
 }
 
 ul {
     list-style-position: inside;
+    padding: 20px;
 /*   щоб лішки враховувались в розмітку і не вилазили*/
 }
 
@@ -114,4 +117,24 @@ ul {
 
 .hidden{
     display: none;
+}
+
+.post-title-and-btn{
+    list-style-type: space-counter;
+    position: relative;
+    margin-bottom: 5px;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*justify-content: space-between*/
+
+}
+
+.details-btn{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+p{
+    display: inline-block;
 }
