@@ -6,9 +6,14 @@ const getAndShowUserInfo = async (id) => {
   const h2 = document.getElementsByTagName('h2')[0]
 h2.innerHTML = user.name;
   showInfo(user);
-  addPostsBtn(user);
+  // addPostsBtn(user);
+    const btn = document.getElementById('user-posts-btn')
+    btn.onclick =()=>{
+        showPosts(user);
+    }
 
 }
+
 
 
 // переробити на рекурсію бажано
@@ -17,6 +22,8 @@ const showInfo = (user) => {
         const divInfo = document.createElement("div");
         const columnName = document.createElement("div");
         columnName.innerText = userKey;
+        divInfo.append(columnName);
+        columnName.className = "column-name";
         const infoColumn = document.createElement("div");
         if (  typeof user[userKey] ==='object') {
             console.log(userKey);
@@ -25,8 +32,10 @@ const insideInfo = user[userKey];
 for (const key in insideInfo ) {
     const li = document.createElement("li");
 if ( typeof insideInfo[key]==='object') {
+    li.classList.add("parenttttt");
+    li.innerHTML= `<span class="inside-li-span">${key}</span>`;
     const liInfo = insideInfo[key];
-li.innerText = key + " : ";
+// li.innerText = key + " : ";
 const ul2 = document.createElement("ul");
 li.appendChild(ul2);
     for (const key in liInfo) {
@@ -40,71 +49,73 @@ else
     li.innerText = key + " : " + insideInfo[key];
     ul.appendChild(li);
 }
-infoColumn.appendChild(ul);
+
+// infoColumn.appendChild(ul);
+            divInfo.appendChild(ul)
         }
-      else infoColumn.innerText = user[userKey];
-        divInfo.append(columnName, infoColumn);
+
+        else {
+            infoColumn.innerText = user[userKey];
+            infoColumn.className = "info-column-inline-block";
+            divInfo.appendChild( infoColumn);
+        }
+
+
         userInfo.appendChild(divInfo);
     }
 }
 
 
-
-const addPostsBtn = (user) => {
-    const btn = document.createElement("button");
-    btn.innerText = 'post of current user'
-    userInfo.appendChild(btn);
-    btn.onclick =()=>{
-        showPosts(user);
-    }
-}
-
-
-
-
-
 const showPosts = async (user) => {
 const posts = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${user.id}`).then(res => res.json());
-
- const modalDiv = document.createElement("div");
+const modalDiv = document.createElement("div");
 modalDiv.className = "modal";
-
 const modalContent = document.createElement("div");
 modalContent.className = "modal-content";
-const ul = document.createElement("ul");
+const modalDivWrapper = document.createElement("div");
+    modalDivWrapper.className = "modalDivWrapper";
 
-modalContent.appendChild(ul);
+    const close = document.createElement("img");
+    close.className = "close";
+    close.src = "/images/img.png";
+    close.alt = "close";
+
+    close.onclick =()=>{
+        // modalDiv.remove() чи краще хайден?
+        modalDiv.classList.toggle('hidden')
+    }
+    const closeDiv = document.createElement("div");
+    closeDiv.className = "closeDiv";
+    closeDiv.appendChild(close);
+    modalDivWrapper.appendChild(closeDiv);
+
+
  for (const post of posts)
  {
      const div = document.createElement("div");
-     const li = document.createElement("li");
      const p = document.createElement("p");
      p.innerText = post.title;
-     li.appendChild(p);
-     // li.innerText = post;
+     p.className = "post-title";
+     div.appendChild(p);
      const button = document.createElement("a");
      button.innerText = "details";
      button.className = "details-btn";
-    button.href = `post-details.html?postId=${post.id}`;
-     li.appendChild(button);
-     li.className= 'post-title-and-btn';
-     ul.appendChild(li);
+     button.href = `post-details.html?postId=${post.id}`;
+     div.appendChild(button);
+     div.className= 'post-title-and-btn';
+     const divWrapper = document.createElement("div");
+     divWrapper.className = "post-title-and-btn-wrapper";
+     divWrapper.appendChild(div);
+     modalContent.appendChild(divWrapper);
  }
+    modalDivWrapper.appendChild(modalContent);
+
+ modalDiv.appendChild(modalDivWrapper);
+ // modalDiv.appendChild(modalContent);
 
 
 
- modalDiv.appendChild(modalContent);
- const close = document.createElement("img");
-close.className = "close";
-close.src = "/images/img.png";
-close.alt = "close";
 
-close.onclick =()=>{
-    // modalDiv.remove() чи краще хайден?
-     modalDiv.classList.toggle('hidden')
-}
-
-modalContent.appendChild(close);
 document.body.appendChild(modalDiv);
 console.log(document.documentElement.outerHTML);
 
