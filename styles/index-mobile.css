@@ -1,0 +1,82 @@
+@media (max-width: 768px) {
+    body {
+        /*font-size: 9px;*/
+        /*background-color: yellow;*/
+    }
+    /*index   */
+    #grid-wrapper{
+        display: grid;
+        padding: 10px;
+        gap: 10px;
+    }
+    a, .details-btn, #user-posts-btn{
+        height: 15px;
+    }
+    h1{
+    font-size: 20px;
+    }
+    p, li, span, a{
+        font-size: 14px;
+        /*background-color: red;*/
+    }
+
+/*    user-details */
+
+    #info-container{
+        flex-direction: column;
+        gap: 15px;
+    }
+    .info-name-span{
+        padding:0 5px;
+    }
+    .info-column-inline-block, .column-name, #user-posts-btn{
+        font-size: 14px;
+    }
+    #user-posts-btn{
+        width: 50%;
+    }
+    #all-user-info-div{
+        padding: 10px;
+    }
+    .modal-content{
+        grid-template-columns:repeat(2, 1fr);
+        grid-template-rows:  auto;
+    }
+    .post-title-and-btn{
+        height: 100px;
+    }
+    .modal-content{
+        gap: 5px;
+    }
+    .post-title-and-btn{
+
+        /*height: fit-content;*/
+    }
+    .post-title{
+        overflow-y: auto;
+    }
+    .details-btn{
+        font-size: 14px;
+        margin-top: 2px;
+    }
+
+/*    post */
+    #comments-div{
+        display:flex;
+        flex-direction: column;
+    }
+    #post-div{
+        margin: 0 20px;
+    }
+    h2{
+        font-size: 16px;
+    }
+}
+
+
+
+@media (max-width: 481px){
+    .modal-content{
+        display:  block;
+    }
+}
