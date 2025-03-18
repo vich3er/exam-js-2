@@ -6,7 +6,7 @@ const getAndShowUserInfo = async (id) => {
   const h2 = document.getElementsByTagName('h2')[0]
 h2.innerHTML = user.name;
   showInfo(user);
-  // addPostsBtn(user);
+
     const btn = document.getElementById('user-posts-btn')
     btn.onclick =()=>{
         showPosts(user);
@@ -16,7 +16,7 @@ h2.innerHTML = user.name;
 
 
 
-// переробити на рекурсію бажано
+
 const showInfo = (user) => {
     for (const userKey in user) {
         const divInfo = document.createElement("div");
@@ -50,7 +50,7 @@ else
     ul.appendChild(li);
 }
 
-// infoColumn.appendChild(ul);
+
             divInfo.appendChild(ul)
         }
 
@@ -111,10 +111,6 @@ const modalDivWrapper = document.createElement("div");
     modalDivWrapper.appendChild(modalContent);
 
  modalDiv.appendChild(modalDivWrapper);
- // modalDiv.appendChild(modalContent);
-
-
-
 
 document.body.appendChild(modalDiv);
 console.log(document.documentElement.outerHTML);

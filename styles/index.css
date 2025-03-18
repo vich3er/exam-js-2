@@ -31,10 +31,6 @@
     /*width: 400px;*/
 overflow: hidden;
 
-    /*глянути як ховати тільки кнопку а не все*/
-
-    /*display: block;*/
-    /*background: #9bdc9b;*/
 }
 
 
@@ -58,29 +54,6 @@ display: flex;
     flex-direction: row;
 }
 
-
-
-
-/*.userDiv{*/
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    border-bottom: 1px solid #9bdc9b;*/
-/*    border-right: 1px solid #9bdc9b;*/
-/*    border-left: 1px solid #9bdc9b;*/
-/*    !*height: 50px;*!*/
-/*}*/
-/*.userDiv > div{*/
-/*    border-right: 1px solid #9bdc9b;*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    justify-content: center;*/
-/*}*/
-
-/*.table-div{*/
-/*    background: #ffffff;*/
-/*    width: 90%;*/
-/*    margin: 0 auto;*/
-/*}*/
 
 h1{
     text-align: center;
@@ -109,29 +82,6 @@ a:hover, .details-btn:hover, #user-posts-btn:hover {
     background: #6c9a6c;
 }
 
-/*.userId{*/
-/*    width: 15%;*/
-/*}*/
-
-/*#top-table div:first-child{*/
-/*    width: 15%;*/
-/*     border-right: white solid 1px;*/
-/*}*/
-
-/*#top-table div:last-child{*/
-/*    width: 85%;*/
-/*}*/
-
-
-/*.userNameAndButton{*/
-/*    padding: 10px;*/
-/*    width: 85%;*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*}*/
-
-
-
 
 
 /*user-dateils інше все*/
@@ -159,9 +109,6 @@ h2{
     /*position: relative;*/
     background: #fff;
     display: grid;
-    /*max-height: 35vh;*/
-    /*justify-items: center;*/
-    /*align-items: center; дінатись як ці штуки впливають на контент в грідах */
     justify-items: center;
     /*align-content: center;*/
     overflow-y: auto;
@@ -176,25 +123,18 @@ h2{
 
 .modal-content::-webkit-scrollbar {
      height: 10px;
-    /*overflow: hidden;*/
-}
-/*  якщо це розкоментувати чи закоментувати все що не стосується скрол бару то він буде виходити за межі, як це приббрати */
-/**::-webkit-scrollbar-track {*/
-/*    background: none;*/
-/*    background: #0000ff;*/
-/*    background-clip: content-box;*/
-/*}*/
 
-*::-webkit-scrollbar-thumb {
+}
+
+
+.modal-content::-webkit-scrollbar-thumb {
     background-color: #9bdc9b;
     border-radius: 5px;
 }
 
 .post-title-and-btn{
-    /*list-style-type: space-counter;*/
     margin-bottom: 5px;
     display: flex;
-    /*display: block;*/
     flex-direction: column;
     justify-content: space-between;
     height: 200px;
@@ -213,8 +153,6 @@ h2{
     padding: 5px;
     border-radius: 50px;
     transition: 0.2s;
-    /*margin: 3px;*/
-    /*margin: 20px;*/
 }
 
 .close:hover{
@@ -223,17 +161,13 @@ h2{
 }
 
 .closeDiv{
-    /*position: relative;*/
     position: sticky;
     top: 0;
     right: 0;
     height: 35px;
-    /*width: 100%;*/
-    /*padding:15px;*/
     background: #9bdc9b;
-    /*display: flex;*/
     padding: 5px;
-    /*align-items: center;*/
+
 }
 .hidden{
     display: none;
@@ -245,19 +179,8 @@ h2{
     background: #ffffff;
     max-height: 85vh;
     width: 90%;
-    /*display: flex;*/
-    /*justify-items: center;*/
-    /*align-items: center;*/
-    /*align-content: center;*/
-
 }
 
-
-/*p   клас в деталях {*/
-/*    overflow-y: auto;*/
-/*    !*додати кнопку для хайжену*!*/
-/*    padding: 10px;*/
-/*}*/
 
 
 
@@ -271,16 +194,9 @@ h2{
 
 
 #user-posts-btn{
-    /*all: unset;*/
     width: 90%;
-    /*color: white;*/
-    /*background-color: #9bdc9b;*/
     border-radius: 10px;
     margin-bottom: 20px;
-    /*text-align: center;*/
-
-
-
 }
 .post-title{
     padding: 5px;
@@ -305,7 +221,6 @@ ul{
 }
 
 .inside-li-span{
-    /*margin: 10px;*/
     text-decoration: underline;
     text-decoration-color: #9bdc9b;
 }
@@ -323,7 +238,7 @@ ul{
     justify-content: center
 }
 
-/*ppost*/
+/*______________________________ppost*/
 
 #post-a{
     margin-top: 20px;
@@ -383,8 +298,3 @@ h2{
 
 }
 
-/*ul {*/
-/*    list-style-position: inside;*/
-/*    padding: 20px;*/
-/*    !*   щоб лішки враховувались в розмітку і не вилазили*!*/
-/*}*/
